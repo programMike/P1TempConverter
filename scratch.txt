@@ -1,0 +1,57 @@
+
+
+	/*focus upon the conversion to temp type in switch
+	then focus upon the input temp type in another switch*/
+	switch ($convertTempType) {
+		case 'Fahrenheit':
+			
+			switch ($inputTempType) {
+				case 'Celsius':
+					//Celsius to Fahrenheit: F = C*9/5+32
+					$result = ($inTempValue*9)/5+32;
+					break;
+				case 'Kelvin'
+					//Kelvin to Fahrenheit: F = 9/5K - 459.67
+					$result = 9/5*$inTempValue - 459.67;
+				default:
+					//Fahrenheit to Fahrenheit:  
+					$result = $inTempValue;
+					break;
+			}//end inner switch
+			break;//end case convert temp type as fahrenheit
+		
+		case 'Kelvin':
+
+			switch ($inputTempType) {
+				case 'Celsius':
+					//Celsius to Kelvin: K = C + 273.15
+					$result = $inTempValue + 273.15;
+					break;
+				case 'Kelvin'
+					//Kelvin to Kelvin 
+					$result = $inTempValue;
+				default:
+					//Fahrenheit to Kelvin: K = 5/9(F + 459.67) 
+					$result = 5/9($inTempValue + 459.67);
+					break;
+			}//end inner switch
+			break;//end case convert temp type as kelvin
+
+		default://celsius
+
+				switch ($inputTempType) {
+				case 'Celsius':
+					//Celsius to Celsius
+					$result = $inTempValue;
+					break;
+				case 'Kelvin'
+					//Kelvin to Celsius: C = K - 273.15
+					$result = $inTempValue - 273.15;
+				default:
+					//Fahrenheit to Celsius: C = ((F-32)*5)/9
+					$result = ((inTempValue-32)*5)/9;
+					break;
+			}//end inner switch
+			break;//end defualt convert temp type as celsius
+	}//end outer switch
+
